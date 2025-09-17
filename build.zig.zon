@@ -1,0 +1,7 @@
+.{
+    .name = .build_util_zig,
+    .version = "0.0.1",
+    .minimum_zig_version = "0.15.1",
+    .paths = .{ "build.zig", "build-util.zig" },
+    .fingerprint = 0xa34efc6a2c9a4914,
+}
