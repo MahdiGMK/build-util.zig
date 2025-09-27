@@ -55,11 +55,11 @@ pub const ProtoC = struct {
     depth: usize,
     out_langs: OutLangs,
     // cpp_out_dir: ?LazyPath, // TODO: add support for custom paths
-    const OutLangs = packed struct {
+    pub const OutLangs = packed struct {
         cpp_out: bool,
         const CPP = @This(){ .cpp_out = true };
     };
-    const Options = struct { root_directory: LazyPath, depth: ?usize = null, protoc_cmd: ?LazyPath = null, out_langs: OutLangs = .CPP };
+    pub const Options = struct { root_directory: LazyPath, depth: ?usize = null, protoc_cmd: ?LazyPath = null, out_langs: OutLangs = .CPP };
     pub fn create(owner: *std.Build, options: Options) *ProtoC {
         const res = owner.allocator.create(ProtoC) catch @panic("OOM");
         res.* = ProtoC{
